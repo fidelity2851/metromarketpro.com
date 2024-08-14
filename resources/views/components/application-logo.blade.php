@@ -1,0 +1,1 @@
+<img src="{{ $GlobalSettings->dark_logo ? asset('storage/settings/'.$GlobalSettings->dark_logo) : asset('images/logo.png') }}" alt="" height="40">

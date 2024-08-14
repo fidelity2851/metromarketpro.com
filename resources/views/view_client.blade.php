@@ -1,0 +1,10 @@
+@extends('layouts.layout')
+
+@section('content')
+<div class="col acct_cont_con px-0">
+    <x-top-header title="Clients" />
+
+    @livewire('client.view-client', ['user' => $user])
+
+</div>
+@endsection
