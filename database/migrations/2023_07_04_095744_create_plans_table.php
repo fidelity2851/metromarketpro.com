@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('min_investment');
             $table->integer('max_investment');
             $table->string('rate_type');
-            $table->integer('rate_number');
+            $table->decimal('rate_number');
             $table->string('interest_period');
             $table->string('maturity');
             $table->boolean('payout_buiness_days_only')->default(false);

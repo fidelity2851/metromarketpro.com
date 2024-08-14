@@ -71,25 +71,29 @@ class PayInvestmentInterest implements ShouldQueue
                     $client_balance = User::select('available_balance')->findorFail($value->user_id)->available_balance;
                 }
 
-                // Create Transaction records
-                $value->transaction()->create([
-                    'user_id' => $value->user_id,
-                    'trx_num' => strval(bin2hex(random_bytes(10))),
-                    'amount' => $interest,
-                    'post_amount' => $client_balance + $interest,
-                    'status' => true,
-                ]);
-
-                // Increament Investment Run Time
+                // Get the fresh Investment Details
                 $curr_invest = Investment::findorFail($value->id);
-                $curr_invest->increment('run_time', 1);
-                $curr_invest->increment('acc_profit', $interest);
+                if ($value->isActive) {
+                    // Create Transaction records
+                    $value->transaction()->create([
+                        'user_id' => $value->user_id,
+                        'trx_num' => strval(bin2hex(random_bytes(10))),
+                        'amount' => $interest,
+                        'post_amount' => $client_balance + $interest,
+                        'status' => true,
+                    ]);
 
-                // Increament User Balance
-                // User::where('id', $value->user_id)->incrementEach([
-                //     'balance' => $interest,
-                //     'available_balance' => $interest,
-                // ]);
+
+                    $curr_invest->increment('acc_profit', $interest);
+
+                    // Increament User Balance
+                    // User::where('id', $value->user_id)->incrementEach([
+                    //     'balance' => $interest,
+                    //     'available_balance' => $interest,
+                    // ]);
+                }
+                // Increament Successfull Run Time
+                $curr_invest->increment('run_time', 1);
             }
 
 

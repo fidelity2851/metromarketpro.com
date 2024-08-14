@@ -35,9 +35,9 @@ class AllInvestments extends Component
     public function totalProfit()
     {
         if (Gate::allows('adminOnly')) {
-            return Investment::sum('profit');
+            return Investment::sum('acc_profit');
         } else {
-            return Investment::where('user_id', auth()->id())->sum('profit');
+            return Investment::where('user_id', auth()->id())->sum('acc_profit');
         }
     }
 
@@ -45,6 +45,32 @@ class AllInvestments extends Component
     public function InvestmentInvoiceEvent($id)
     {
         $this->dispatch('GetInvestmentInvoice', invest_id: $id)->to(InvestmentInvoice::class);
+    }
+
+    // Pause Investment
+    public function PauseInvestment($id)
+    {
+        // Get Investment Record
+        $invest = Investment::findorFail($id);
+        $invest->update([
+            'isActive' => false,
+        ]);
+
+        // Dispatch Success Message
+        $this->dispatch('showToast', ['status' => true, 'message' => 'Paused Successfully.']);
+    }
+
+    // Pause Investment
+    public function ResumeInvestment($id)
+    {
+        // Get Investment Record
+        $invest = Investment::findorFail($id);
+        $invest->update([
+            'isActive' => true,
+        ]);
+
+        // Dispatch Success Message
+        $this->dispatch('showToast', ['status' => true, 'message' => 'Resumed Successfully.']);
     }
 
     // Delete an Investment

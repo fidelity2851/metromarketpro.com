@@ -92,12 +92,12 @@
                         Withdraw funds
                     </p>
                 </a>
-                <a href="{{ Route('transfer-funds') }}" class="text-decoration-none">
+                {{-- <a href="{{ Route('transfer-funds') }}" class="text-decoration-none">
                     <p class="acct_menu_link">
                         <span class="acct_menu_icon mr-3"> <i class="fa-solid fa-arrow-right-arrow-left"></i> </span>
                         Transfer funds
                     </p>
-                </a>
+                </a> --}}
                 <a href="{{ Route('payout') }}" class="text-decoration-none">
                     <p class="acct_menu_link">
                         <span class="acct_menu_icon mr-3"> <i class="fa-solid fa-briefcase"></i> </span>
@@ -191,9 +191,9 @@
                         <a href="{{ Route('profile') }}" class="text-decoration-none">
                             <p class="drop_menu_link">Profile Settings</p>
                         </a>
-                        <a href="{{ Route('2fa') }}" class="text-decoration-none">
+                        {{-- <a href="{{ Route('2fa') }}" class="text-decoration-none">
                             <p class="drop_menu_link">2FA</p>
-                        </a>
+                        </a> --}}
                         @can('adminOnly')
 
                         <a href="{{ Route('settings') }}" class="text-decoration-none">
@@ -254,7 +254,7 @@
     (function(){
     var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
     s1.async=true;
-    s1.src='https://embed.tawk.to/65f75ba89317c5437128d3a9/1hp73s3db';
+    s1.src='https://embed.tawk.to/66bcc125146b7af4a43a5f51/1i58l4va6';
     s1.charset='UTF-8';
     s1.setAttribute('crossorigin','*');
     s0.parentNode.insertBefore(s1,s0);

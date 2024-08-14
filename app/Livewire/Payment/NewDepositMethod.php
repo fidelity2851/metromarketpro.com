@@ -52,7 +52,7 @@ class NewDepositMethod extends Component
             $deposit_method = DepositMethod::create([
                 'name' => $this->title,
                 'deposit_method' => $this->deposit_method,
-                'qr_code' => $this->qr_code,
+                'qr_code' => $qr_code,
                 'wallet_address' => $this->wallet_address,
                 'network_type' => $this->network_type,
                 'bank_name' => $this->bank_name,

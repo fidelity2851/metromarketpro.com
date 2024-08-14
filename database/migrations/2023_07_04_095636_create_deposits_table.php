@@ -16,8 +16,8 @@ return new class extends Migration
             $table->foreignId('user_id');
             $table->foreignId('method_id');
             $table->string('trx_num');
-            $table->integer('amount');
-            $table->integer('fee');
+            $table->decimal('amount');
+            $table->decimal('fee');
             $table->string('proof')->nullable();
             $table->boolean('status')->default(false);
             $table->timestamps();

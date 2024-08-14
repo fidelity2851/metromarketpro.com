@@ -47,7 +47,7 @@ class EditPlan extends Component
             'min_investment' => 'required|integer',
             'max_investment' => 'required|integer',
             'rate_type' => 'required|string|max:255',
-            'rate_number' => 'required|integer|',
+            'rate_number' => 'required|numeric|',
             'interest_period' => 'required|numeric|',
             'maturity' => 'required|string|max:255',
             'return_capital_amount' => 'required|boolean|',

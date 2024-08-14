@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('referral_id');
             $table->foreignId('referee_id');
-            $table->integer('amount')->default(0);
+            $table->decimal('amount')->default(0);
             $table->boolean('status')->default(true);
             $table->timestamps();
         });

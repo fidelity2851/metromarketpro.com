@@ -17,8 +17,8 @@ return new class extends Migration
             $table->integer('transactionable_id');
             $table->string('transactionable_type');
             $table->string('trx_num');
-            $table->integer('amount');
-            $table->integer('post_amount');
+            $table->decimal('amount');
+            $table->decimal('post_amount');
             $table->boolean('status')->default(false);
             $table->timestamps();
         });

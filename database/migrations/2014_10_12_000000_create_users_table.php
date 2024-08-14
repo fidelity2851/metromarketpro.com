@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('username')->unique();
             $table->string('fullname');
             $table->string('email')->unique();
-            $table->integer('balance')->default(0);
-            $table->integer('available_balance')->default(0);
+            $table->decimal('balance')->default(0);
+            $table->decimal('available_balance')->default(0);
             $table->string('phone')->nullable();
             $table->string('image')->nullable();
             $table->timestamp('email_verified_at')->nullable();

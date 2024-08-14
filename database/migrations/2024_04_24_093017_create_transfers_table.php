@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('sender_id');
             $table->foreignId('receiver_id');
             $table->string('trx_num');
-            $table->integer('amount');
+            $table->decimal('amount');
             $table->integer('fee')->default(0);
             $table->boolean('status')->default(false);
             $table->timestamps();

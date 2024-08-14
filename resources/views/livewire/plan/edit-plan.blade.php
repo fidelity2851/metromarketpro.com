@@ -59,7 +59,7 @@
                     <div class="d-md-flex ">
                         <div class="col px-0 mr-md-3 mb-3">
                             <label class="acct_label">Interest Rate</label>
-                            <input type="number" wire:model.lazy="rate_number" class="acct_modal_box" min="1"
+                            <input type="number" wire:model.lazy="rate_number" class="acct_modal_box" min="1" step="any"
                                 placeholder="eg. 50">
                             @error('rate_number') <span class="acct_box_error">{{ $message }}</span> @enderror
                         </div>

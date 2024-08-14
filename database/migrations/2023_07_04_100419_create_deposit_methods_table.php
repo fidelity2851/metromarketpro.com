@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('logo');
             $table->string('deposit_method');
-            $table->integer('min_deposit');
-            $table->integer('fee')->default(0.00);
+            $table->decimal('min_deposit');
+            $table->decimal('fee')->default(0.00);
             $table->string('qr_code')->nullable();
             $table->string('wallet_address')->nullable();
             $table->string('network_type')->nullable();

@@ -66,7 +66,7 @@
     </div>
     @endcan
 
-    <div wire:loading wire:target='search,sort_by,order_by,per_page,DeleteInvestment' class="col">
+    <div wire:loading wire:target='search,sort_by,order_by,per_page,DeleteInvestment,PauseInvestment,ResumeInvestment' class="col">
         <div class="d-flex justify-content-center mb-4">
             <div class="spinner-grow text-success" role="status">
                 <span class="sr-only">Loading...</span>
@@ -123,7 +123,7 @@
                         <span class="table_status2">Running</span>
                         @endif
                     </td>
-                    <td class="table_data"> <b>${{number_format($item->profit)}}</b> </td>
+                    <td class="table_data"> <b>${{number_format($item->acc_profit)}}</b> </td>
                     <td class="table_data">{{Carbon\Carbon::parse($item->due_date)->toFormattedDateString()}}</td>
                     <td class="table_data">{{Carbon\Carbon::parse($item->created_at)->toFormattedDateString()}}</td>
                     <td class="table_data">
@@ -134,6 +134,12 @@
                             onclick="return confirm('Are you sure you want to delete?')  || event.stopImmediatePropagation()"
                             wire:click="DeleteInvestment({{$item->id}})" type="button"
                             class="table_btn2">Delete</button>
+                        @if ($item->isActive)
+                        <button wire:click="PauseInvestment({{$item->id}})" class="table_btn3"
+                            type="button">Pause</button>
+                        @else
+                        <button wire:click="ResumeInvestment({{$item->id}})" class="table_btn5" type="button">Resume</button>
+                        @endif
                         @endcan
                     </td>
                 </tr>

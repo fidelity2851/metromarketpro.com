@@ -128,7 +128,7 @@ class DepositModal extends Component
             $this->reset(['search', 'client', 'users', 'ammount', 'deposit_method', 'deposit_fee', 'proof']);
 
             // Dispatch Success Message
-            $this->dispatch('showToast', ['status' => true, 'message' => 'Funds Deposited Successfully']);
+            $this->dispatch('showToast', ['status' => true, 'message' => 'Funds Deposited, Waiting approval']);
 
             // Emit To Current Components
             $this->dispatch('NewDepositCreated');

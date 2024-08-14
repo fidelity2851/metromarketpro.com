@@ -56,7 +56,7 @@
             <div class="d-md-flex ">
                 <div class="col px-0 mr-md-3 mb-3">
                     <label class="acct_modal_label">Interest Rate</label>
-                    <input type="number" wire:model.lazy="rate_number" class="acct_modal_box" min="1"
+                    <input type="number" wire:model.lazy="rate_number" class="acct_modal_box" min="1" step="any"
                         placeholder="eg. 50">
                     @error('rate_number') <span class="acct_box_error">{{ $message }}</span> @enderror
                 </div>
@@ -92,14 +92,14 @@
                         at the end of maturity for either withdrawal or reinvestment</small>
                 </label>
             </div>
-            <div class="custom-control custom-checkbox mb-2">
+            {{-- <div class="custom-control custom-checkbox mb-2">
                 <input wire:model="payout_buiness_days_only" type="checkbox" class="custom-control-input"
                     id="customCheck3" value="true">
                 <label class="custom-control-label acct_modal_label" for="customCheck3">Payout on business
                     days only <br>
                     <small class="font-weight-bold">If checked the profits will be paid only on week days.</small>
                 </label>
-            </div>
+            </div> --}}
             <div class="custom-control custom-checkbox mb-2">
                 <input wire:model.lazy="status" type="checkbox" class="custom-control-input" id="customCheck2"
                     value="true">

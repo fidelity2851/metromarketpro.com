@@ -280,48 +280,28 @@ Dashboard
 
             <div class="col-12 mb-5">
                 <p class="acct_dash_head">Crypto Trading Data</p>
-                <style>
-                    .tradingview-widget-copyright {
-                        font-size: 13px !important;
-                        line-height: 32px !important;
-                        text-align: center !important;
-                        vertical-align: middle !important;
-                        font-family: 'Trebuchet MS', Tahoma, Arial, sans-serif !important;
-                        color: #9db2bd !important;
-                    }
-
-                    .tradingview-widget-copyright .blue-text {
-                        color: #3bb3e4 !important;
-                    }
-
-                    .tradingview-widget-copyright a {
-                        text-decoration: none !important;
-                        color: #9db2bd !important;
-                    }
-
-                    .tradingview-widget-copyright a:visited {
-                        color: #9db2bd !important;
-                    }
-
-                    .tradingview-widget-copyright a:hover .blue-text {
-                        color: #38acdb !important;
-                    }
-
-                    .tradingview-widget-copyright a:active .blue-text {
-                        color: #299dcd !important;
-                    }
-
-                    .tradingview-widget-copyright a:visited .blue-text {
-                        color: #3bb3e4 !important;
-                    }
-                </style>
-                <iframe allowtransparency="true" style="box-sizing: border-box; height: calc(500px); width: 100%;"
-                    src="https://s.tradingview.com/cryptomktscreenerwidget/#%7B%22width%22%3A%22100%25%22%2C%22height%22%3A%22400%22%2C%22defaultColumn%22%3A%22overview%22%2C%22screener_type%22%3A%22crypto_mkt%22%2C%22displayCurrency%22%3A%22USD%22%2C%22locale%22%3A%22en%22%2C%22market%22%3A%22crypto%22%2C%22enableScrolling%22%3Atrue%2C%22utm_source%22%3A%22btchomemining.com%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22cryptomktscreener%22%7D"
-                    frameborder="0"></iframe>
-                <!-- <div style="height: 32px; line-height: 32px; width: 100%; text-align: center; vertical-align: middle;">
-                <a ref="nofollow noopener" target="_blank" href="assets/http://www.tradingview.com" style="color: rgb(173, 174, 176); font-family: Tahoma, Arial, sans-serif; font-size: 13px;">Cryptocurrency
-                    Market by <span style="color: #3BB3E4">TradingView</span></a>
-                </div> -->
+                <!-- TradingView Widget BEGIN -->
+                <div class="tradingview-widget-container">
+                    <div class="tradingview-widget-container__widget"></div>
+                    <div class="tradingview-widget-copyright"></div>
+                    <script type="text/javascript"
+                        src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+                        {
+    "width": "100%",
+    "height": "610",
+    "symbol": "BINANCE:BTCUSDT",
+    "interval": "D",
+    "timezone": "Etc/UTC",
+    "theme": "light",
+    "style": "1",
+    "locale": "en",
+    "allow_symbol_change": true,
+    "calendar": false,
+    "support_host": "https://www.tradingview.com"
+  }
+                    </script>
+                </div>
+                <!-- TradingView Widget END -->
             </div>
 
             <div class="col-12 mb-4">

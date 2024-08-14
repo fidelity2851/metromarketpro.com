@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('user_id');
             $table->string('withdrawal_type');
             $table->string('trx_num');
-            $table->integer('amount');
+            $table->decimal('amount');
             $table->integer('fee');
             $table->boolean('status')->default(false);
             $table->timestamps();

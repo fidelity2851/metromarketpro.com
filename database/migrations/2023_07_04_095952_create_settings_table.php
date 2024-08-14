@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('language')->nullable();
             $table->integer('min_withdrawal')->nullable();
             $table->string('withdrawal_fee_type')->nullable();
-            $table->integer('withdrawal_fee')->nullable();
+            $table->decimal('withdrawal_fee')->nullable();
             $table->string('white_logo')->nullable();
             $table->string('dark_logo')->nullable();
             $table->string('favicon')->nullable();
@@ -44,7 +44,7 @@ return new class extends Migration
             $table->boolean('sms_active')->default(false);
             $table->boolean('referral_active')->default(false);
             $table->string('referral_pay_type')->nullable();
-            $table->integer('referral_pay_rate')->nullable();
+            $table->decimal('referral_pay_rate')->nullable();
             $table->boolean('pay_referral_once')->default(true);
             $table->boolean('pay_referral_without_deposit')->default(false);
             $table->boolean('kyc_active')->default(true);
