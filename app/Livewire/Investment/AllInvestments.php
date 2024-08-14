@@ -60,7 +60,7 @@ class AllInvestments extends Component
         $this->dispatch('showToast', ['status' => true, 'message' => 'Paused Successfully.']);
     }
 
-    // Pause Investment
+    // Resume Investment
     public function ResumeInvestment($id)
     {
         // Get Investment Record

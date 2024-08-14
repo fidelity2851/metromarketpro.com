@@ -18,6 +18,11 @@ class InvestmentController extends Controller
         return view('invest');
     }
 
+    public function edit($invest_id)
+    {
+        return view('edit_invest_profit', compact('invest_id'));
+    }
+
     public function PayInvestmentIntrest()
     {
 

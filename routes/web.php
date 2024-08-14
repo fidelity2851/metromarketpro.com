@@ -51,6 +51,7 @@ Route::middleware(['auth', 'ensure_email_verified', '2fa'])->group(function () {
 
     Route::controller(InvestmentController::class)->group(function () {
         Route::get('/invest', 'index')->name('invest');
+        Route::get('/invest/{invest_id}/edit/profit', 'edit')->name('edit-invest-profit');
     });
 
     Route::controller(PlanController::class)->group(function () {
