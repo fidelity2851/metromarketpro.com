@@ -44,7 +44,7 @@ class GeneralSettings extends Component
             'language' => 'required|string|max:255',
             'min_withdrawal' => 'required|integer|',
             'withdrawal_fee_type' => 'required|string|max:255',
-            'withdrawal_fee' => 'required|integer|',
+            'withdrawal_fee' => 'required|numeric|',
             'white_logo' => 'nullable|image:png,jpg,jpeg|max:5000',
             'dark_logo' => 'nullable|image:png,jpg,jpeg|max:5000',
             'favicon' => 'nullable|image:png,jpg,jpeg|max:5000',

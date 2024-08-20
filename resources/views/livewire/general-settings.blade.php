@@ -118,8 +118,8 @@
                                     @error('withdrawal_fee_type') <span class="acct_box_error">{{ $message }}</span>@enderror
                                 </div>
                                 <div class="mb-3">
-                                    <label class="acct_label">Withdrawal Feee</label>
-                                    <input type="number" wire:model.lazy="withdrawal_fee" class="acct_box" placeholder="Eg. 20">
+                                    <label class="acct_label">Withdrawal Fee</label>
+                                    <input type="number" wire:model.lazy="withdrawal_fee" class="acct_box" placeholder="Eg. 20" step="any">
                                     @error('withdrawal_fee') <span class="acct_box_error">{{ $message }}</span>@enderror
                                 </div>
                                 <div class="d-sm-flex mb-3">
