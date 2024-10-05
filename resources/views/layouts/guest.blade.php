@@ -14,6 +14,8 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body class="font-sans text-gray-900 antialiased">
@@ -28,6 +30,18 @@
             {{ $slot }}
         </div>
     </div>
+
+    {{-- Google ReCAPTCHA --}}
+    <script>
+        function validateRecaptcha() {
+          var recaptchaResponse = grecaptcha.getResponse();
+          if (recaptchaResponse.length === 0) {
+            alert("Please complete the ReCAPTCHA.");
+            return false; // Prevent form submission
+          }
+          return true; // Proceed with form submission
+        }
+    </script>
 
     <!--Start of Tawk.to Script-->
     <script type="text/javascript">
