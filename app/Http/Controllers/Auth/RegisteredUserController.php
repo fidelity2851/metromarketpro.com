@@ -17,6 +17,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 use PragmaRX\Google2FALaravel\Support\Authenticator;
@@ -39,6 +40,14 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+
+        if (RateLimiter::tooManyAttempts('register-check', 5)) {
+            abort(429);
+        }
+
+        // Hit the rate limiter for this attempt
+        RateLimiter::hit('register-check');
+
         // Validate User Input
         $request->validate([
             'username' => ['required', 'string', 'max:255', 'unique:' . User::class],
@@ -93,6 +102,4 @@ class RegisteredUserController extends Controller
         // Redirect
         return redirect(RouteServiceProvider::HOME);
     }
-
-    
 }
