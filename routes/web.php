@@ -106,10 +106,10 @@ Route::controller(InvestmentController::class)->group(function () {
 
 
 // Livewire::setScriptRoute(function ($handle) {
-//     return Route::get('/trade/livewire/livewire.js', $handle);
+//     return Route::get('/en/trade/livewire/livewire.js', $handle);
 // });
 // Livewire::setUpdateRoute(function ($handle) {
-//     return Route::post('/trade/livewire/update', $handle);
+//     return Route::post('/en/trade/livewire/update', $handle);
 // });
 
 
