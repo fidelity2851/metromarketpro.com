@@ -45,7 +45,7 @@
             <div class="col acct_menu_header_con d-flex justify-content-center align-items-center sticky-top">
                 <!-- <p class="acct_menu_header">VESTPRO</p> -->
                 <img src="{{ $GlobalSettings->dark_logo ? asset('storage/settings/'.$GlobalSettings->dark_logo) : asset('images/logo.png') }}"
-                    alt="" width="200">
+                    alt="" width="200" class="bg-light rounded">
                 <span id="close_menu" class="acct_menu_bar d-xl-none ml-auto"> <i class="fas fa-times"></i> </span>
             </div>
             <div class="col d-flex acct_menu_head_con border-bottom p-4">

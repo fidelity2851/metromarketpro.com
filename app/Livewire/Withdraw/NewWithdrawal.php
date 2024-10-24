@@ -172,7 +172,7 @@ class NewWithdrawal extends Component
                     Notification::send($withdrawal->user, new ApprovedWithdrawal($withdrawal));
                 } else {
                     // Send Withdrawal Request Email
-                    Mail::to(env('DEFAULT_EMAIL', 'info@vesttradesolutions.com'))->send(new WithdrawalRequest($withdrawal));
+                    Mail::to(env('DEFAULT_EMAIL', 'info@metromarketpro.com'))->send(new WithdrawalRequest($withdrawal));
                 }
 
                 if ($transaction) {
