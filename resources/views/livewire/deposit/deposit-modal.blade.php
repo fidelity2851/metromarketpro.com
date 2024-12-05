@@ -132,53 +132,54 @@
 
 <script>
     const copyToClipboard = (id) => {
-  var r = document.createRange();
-  r.selectNode(document.getElementById(id));
-  window.getSelection().removeAllRanges();
-  window.getSelection().addRange(r);
-  document.execCommand("copy");
-  window.getSelection().removeAllRanges();
+        const element = document.getElementById(id);
+        const text = element.textContent || element.innerText; // Get only the text content
 
-  // Turn Copy text to Copied
-  $('#copy_acct').text('Copied!')
-};
+        // Use modern Clipboard API if available
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text)
+                .then(() => {
+                    showCopySuccess();
+                })
+                .catch((err) => {
+                    console.error('Clipboard API failed, falling back:', err);
+                    fallbackCopyText(text); // Use fallback if Clipboard API fails
+                });
+        } else {
+            fallbackCopyText(text); // Use fallback for older browsers or unsupported platforms
+        }
+    };
 
-const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    const fallbackCopyText = (text) => {
+        // Create a hidden textarea for the fallback copy
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.style.position = 'fixed'; // Prevent it from affecting the page layout
+        textarea.style.opacity = '0'; // Make it invisible
+        document.body.appendChild(textarea);
+        textarea.select();
 
-const copyIOS = (id) => {
-  const text = document.getElementById(id).innerHTML;
+        try {
+            document.execCommand('copy'); // Use the legacy copy command
+            showCopySuccess();
+        } catch (err) {
+            console.error('Fallback copy failed:', err);
+        }
 
-  if (!navigator.clipboard) {
-    const textarea = document.createElement("textarea");
+        document.body.removeChild(textarea); // Remove the textarea after copying
+    };
 
-    textarea.value = text;
-    textarea.style.fontSize = "20px";
-    document.body.appendChild(textarea);
+    const showCopySuccess = () => {
+        const copyElement = document.getElementById('copy_acct');
+        copyElement.innerText = 'Copied!';
+        setTimeout(() => {
+            copyElement.innerText = 'Copy'; // Reset to "Copy" after 2 seconds
+        }, 2000);
+    };
 
-    const range = document.createRange();
-    range.selectNodeContents(textarea);
+    const copyAccountToClipboard = (id) => {
+        copyToClipboard(id); // Call the main copy function
+    };
 
-    const selection = window.getSelection();
-    selection.removeAllRanges();
-    selection.addRange(range);
-    textarea.setSelectionRange(0, 999999);
-
-    document.execCommand("copy");
-
-    document.body.removeChild(textarea);
-  }
-
-  navigator.clipboard.writeText(text);
-};
-
-const copyAccountToClipboard = (id) => {
-  if (isIOS) {
-    return copyIOS(id);
-  }
-  copyToClipboard(id);
-};
-
-window.copyTextById = copyAccountToClipboard
-
-
+    window.copyTextById = copyAccountToClipboard; // Expose function globally for testing
 </script>
