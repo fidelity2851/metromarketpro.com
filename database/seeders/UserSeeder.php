@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
             'referral_code' => bin2hex(random_bytes(5)),
             'username' => 'Admin',
             'fullname' => 'Main Admin',
-            'email' => 'admin@metromarketpro.com',
+            'email' => 'admin@metromarketpro.net',
             'password' => Hash::make('12345678'),
             'isVerified' => true,
         ]);

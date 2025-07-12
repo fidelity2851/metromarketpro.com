@@ -94,7 +94,7 @@ class KycModal extends Component
                 $this->reset(['verify_method', 'verify_proof', 'address_method', 'address_proof', 'passport']);
 
                 // Send Deposit Request Email
-                Mail::to(env('DEFAULT_EMAIL', 'info@metromarketpro.com'))->send(new KycUpload($kyc));
+                Mail::to(env('DEFAULT_EMAIL', 'info@metromarketpro.net'))->send(new KycUpload($kyc));
 
                 // Dispatch Success Message
                 $this->dispatch('showToast', ['status' => true, 'message' => 'KYC Is Now Under Review.']);
@@ -105,7 +105,7 @@ class KycModal extends Component
         }
     }
 
-    
+
     public function mount()
     {
         $this->KycStatus();

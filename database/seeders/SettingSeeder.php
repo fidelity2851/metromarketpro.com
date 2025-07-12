@@ -16,7 +16,7 @@ class SettingSeeder extends Seeder
         DB::table('settings')->insert([
             'company_name' => 'Metro Market Pro',
             'company_phone' => '00011122233',
-            'company_email' => 'info@metromarketpro.com',
+            'company_email' => 'info@metromarketpro.net',
             'currency' => '$',
             'language' => 'english',
             'min_withdrawal' => 1000,
