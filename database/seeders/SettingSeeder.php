@@ -14,9 +14,9 @@ class SettingSeeder extends Seeder
     public function run(): void
     {
         DB::table('settings')->insert([
-            'company_name' => 'Metro Market Pro',
+            'company_name' => 'Metro Trade Global',
             'company_phone' => '00011122233',
-            'company_email' => 'info@metromarketpro.net',
+            'company_email' => 'info@metrotradeglobal.com',
             'currency' => '$',
             'language' => 'english',
             'min_withdrawal' => 1000,

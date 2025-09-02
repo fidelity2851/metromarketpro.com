@@ -19,7 +19,7 @@ class TwoFaController extends Controller
         $secret = $user->two_fa_secret ?? $google2fa->generateSecretKey();
 
         $qr_code = $google2fa->getQRCodeInline(
-            env('APP_NAME', 'metromarketpro'),
+            env('APP_NAME', 'metrotradeglobal'),
             auth()->user()->email,
             $secret
         );
