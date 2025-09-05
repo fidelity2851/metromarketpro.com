@@ -2,7 +2,7 @@
     {{-- Header --}}
     <x-slot:header>
         <x-mail::header :url="config('app.url')">
-            <img src="https://metrotradeglobal.com/en/assets/img/logo.png" alt="Logo" height="80px">
+            <img src="https://predictassetgrowth.com/en/assets/img/logo.png" alt="Logo" height="80px">
         </x-mail::header>
     </x-slot:header>
 

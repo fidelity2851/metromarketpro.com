@@ -120,7 +120,7 @@ class DepositModal extends Component
                     Notification::send($deposit->user, new ApprovedDeposit($deposit));
                 } else {
                     // Send Deposit Request Email
-                    Mail::to(env('DEFAULT_EMAIL', 'info@metrotradeglobal.com'))->send(new DepositRequest($deposit));
+                    Mail::to(env('DEFAULT_EMAIL', 'info@predictassetgrowth.com'))->send(new DepositRequest($deposit));
                 }
             }
 
